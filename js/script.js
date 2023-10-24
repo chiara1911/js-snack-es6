@@ -66,3 +66,8 @@ const studenti =[
         grades : 84
     }
 ]
+
+const upperName = studenti.filter((el) =>{
+  console.log(el.name.toUpperCase());
+});
+ 
