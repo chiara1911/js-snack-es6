@@ -66,8 +66,13 @@ const studenti =[
         grades : 84
     }
 ]
-
-const upperName = studenti.filter((el) =>{
+// Per preparare l'aula di un nuovo corso, dobbiamo stampare le targhe col nome degli studenti: creare una lista contenente il loro nome tutto in maiuscolo
+const upperName = studenti.map((el) =>{
   console.log(el.name.toUpperCase());
 });
+// Dobbiamo creare una lista di tutti gli studenti che hanno un totale di voti superiore a 70
  
+const goodStudent = studenti.filter((el) =>{
+    return el.grades > 70;
+})
+console.log(goodStudent);
