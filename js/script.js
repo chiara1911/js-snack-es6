@@ -263,25 +263,29 @@ const squadre = [
         name: 'Bologna',
         punti: 0,
         falli: 0,
-        picture : 'Logo_Bologna_FC_2018.svg.png'
+        picture : 'Logo_Bologna_FC_2018.svg.png',
+        allenatore : 'Thiago Motta',
     },
     {
         name: 'Chievo',
         punti: 0,
         falli: 0,
-        picture : 'chievo.png'
+        picture : 'chievo.png',
+        allenatore: 'Michele Marcolini'
     },
     {
         name: 'Inter',
         punti: 0,
         falli: 0,
-        picture: 'inter.png'
+        picture: 'inter.png',
+        allenatore:'Simone Inzaghi'
     },
     {
         name: 'Milan',
         punti: 0,
         falli: 0,
-        picture: 'Logo_of_AC_Milan.svg.webp'
+        picture: 'Logo_of_AC_Milan.svg.webp',
+        allenatore : 'Stefano Pioli'
     }
 ];
 const rowEl = document.querySelector('.row');
@@ -292,12 +296,13 @@ console.log(rowEl);
 
 
 const classifica = squadre.map((element) => {
-    const { name, punti, falli, picture } = element;
+    const { name, punti, falli, picture, allenatore } = element;
     const obj = {
         name,
         punti,
         falli,
-        picture
+        picture,
+        allenatore
     };
 
     // Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti
@@ -312,12 +317,12 @@ const classifica = squadre.map((element) => {
         const col = document.createElement("div");
          col.classList.add("col-6");
            const template = `         
-            <div class="card text-center col-3">
-            <h3 class="text-uppercase"> squadra</h3>
+            <div class="card text-center col-3 text-light">
+            <h3 class="text-uppercase text-light"> squadra</h3>
                 <img class="card-img" src="/img/${obj.picture}" alt ="">
-                    <div class="col-9 card-body d-flex flex-column align-items-end">                        
-                        <h4>${obj.name} </h4>
-                        <h5>falli subiti ${obj.falli} </h5>
+                <h3>${obj.name} </h3>
+                    <div class="col-9 card-body d-flex flex-column stext-center text-light">                                               <h4 class="p-3 text-light">Allenatore: ${obj.allenatore}</h4>  
+                        <h5 class="p-3 text-light">falli subiti ${obj.falli} </h5>
                     </div>
             </div>
        
