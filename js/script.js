@@ -30,18 +30,18 @@ tavoloVip.forEach((element, index, array)=> {
      guestName: element,
       place: place
  }
- if (guest ==='Maneskin'){
-    for(let i= 0; i < 3; i++){
-        place++;
-        array.push({
-            tableName: 'tavoloVip',
-             guestName: element,
-              place: place
-         })
-    }
- }
+//  if (guest ==='Maneskin'){
+//     for(let i= 0; i < 3; i++){
+//         place++;
+//         array.push({
+//             tableName: 'tavoloVip',
+//              guestName: element,
+//               place: place
+//          })
+//     }
+//  }
 
-})
+ })
 
 
 
@@ -231,4 +231,14 @@ const bici =[
     }
 ];
 
-
+console.log(bici)
+ const biciPeso = bici.map((element)=> {
+   return element.peso;
+ });
+ let pesoMinore;
+for (let i = 0; i < biciPeso.length; i++){
+    
+    if (i < biciPeso){
+        console.log(element.peso);
+    }
+};
