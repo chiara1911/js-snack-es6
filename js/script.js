@@ -249,7 +249,7 @@ const { nome, peso } = biciLeggera;
 const biciEl = document.getElementById('bici-da-corsa');
 let text;
 
-text = ` questa è la bici più leggera. Si chiama ${biciLeggera.nome} e pesa ${biciLeggera.peso} kg`;
+text = ` Questa è la bici più leggera. Si chiama ${biciLeggera.nome} e pesa ${biciLeggera.peso} kg`;
 
 biciEl.innerHTML = text;
 
@@ -262,67 +262,70 @@ const squadre = [
     {
         name: 'Bologna',
         punti: 0,
-        falli: 0
+        falli: 0,
+        picture : 'Logo_Bologna_FC_2018.svg.png'
     },
     {
         name: 'Chievo',
         punti: 0,
-        falli: 0
+        falli: 0,
+        picture : 'chievo.png'
     },
     {
         name: 'Inter',
         punti: 0,
-        falli: 0
+        falli: 0,
+        picture: 'inter.png'
     },
     {
         name: 'Milan',
         punti: 0,
-        falli: 0
+        falli: 0,
+        picture: 'Logo_of_AC_Milan.svg.webp'
     }
 ];
+const rowEl = document.querySelector('.row');
+console.log(rowEl);
+
+
+
+
 
 const classifica = squadre.map((element) => {
-    const { name, punti, falli } = element;
+    const { name, punti, falli, picture } = element;
     const obj = {
         name,
         punti,
-        falli
+        falli,
+        picture
     };
+
     // Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti
     obj.punti = getRndInteger(40, 75);
     obj.falli = getRndInteger(20, 100);
     // Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.  
-    const teamEl = {
-        name,
-        falli
+     console.log(`la squadra ${name} ha totalizzato ${obj.falli} falli`);
+     for (let i = 0; i < 1; i++) {
+        printCol(obj[i])
     };
-    teamEl.falli = obj.falli;
+     function printCol(scudetto){
+        const col = document.createElement("div");
+         col.classList.add("col-6");
+           const template = `         
+            <div class="card text-center">
+                <img class="card-img" src="/img/${obj.picture}" alt ="">
+                    <div class="card-body">
+                        <h4>Nome squadra ${obj.name} </h4>
+                        <h5>falli subiti ${obj.falli} </h5>
+                    </div>
+            </div>
+       
+        `
+        col.innerHTML = template;
+        rowEl.append(col);
+    }
    
-    const score = document.getElementById('punteggioTotale');
-    let testo;
-             testo = `La squadra ${name} ha fatto ${obj.falli} falli`;
-        score.innerHTML= testo;
-    
 });
-
-    
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
