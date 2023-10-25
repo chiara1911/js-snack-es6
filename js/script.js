@@ -302,7 +302,7 @@ const classifica = squadre.map((element) => {
 
     // Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti
     obj.punti = getRndInteger(40, 75);
-    obj.falli = getRndInteger(20, 100);
+    obj.falli = getRndInteger(20, 60);
     // Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.  
      console.log(`la squadra ${name} ha totalizzato ${obj.falli} falli`);
      for (let i = 0; i < 1; i++) {
@@ -312,10 +312,11 @@ const classifica = squadre.map((element) => {
         const col = document.createElement("div");
          col.classList.add("col-6");
            const template = `         
-            <div class="card text-center">
+            <div class="card text-center col-3">
+            <h3 class="text-uppercase"> squadra</h3>
                 <img class="card-img" src="/img/${obj.picture}" alt ="">
-                    <div class="card-body">
-                        <h4>Nome squadra ${obj.name} </h4>
+                    <div class="col-9 card-body d-flex flex-column align-items-end">                        
+                        <h4>${obj.name} </h4>
                         <h5>falli subiti ${obj.falli} </h5>
                     </div>
             </div>
