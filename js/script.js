@@ -24,24 +24,24 @@ person = tavoloVip.map((element, index) => {
 
 console.log(segnaposto);
 let place = 1
-tavoloVip.forEach((element, index, array)=> {
- array[index]= {
-    tableName: 'tavoloVip',
-     guestName: element,
-      place: place
- }
-//  if (guest ==='Maneskin'){
-//     for(let i= 0; i < 3; i++){
-//         place++;
-//         array.push({
-//             tableName: 'tavoloVip',
-//              guestName: element,
-//               place: place
-//          })
-//     }
-//  }
+tavoloVip.forEach((element, index, array) => {
+    array[index] = {
+        tableName: 'tavoloVip',
+        guestName: element,
+        place: place
+    }
+    //  if (guest ==='Maneskin'){
+    //     for(let i= 0; i < 3; i++){
+    //         place++;
+    //         array.push({
+    //             tableName: 'tavoloVip',
+    //              guestName: element,
+    //               place: place
+    //          })
+    //     }
+    //  }
 
- })
+})
 
 
 
@@ -212,7 +212,7 @@ console.log(people);
 
 // creare array bici da corsa
 
-const bici =[
+const bici = [
     {
         nome: 'Flash',
         peso: 7
@@ -232,13 +232,26 @@ const bici =[
 ];
 
 console.log(bici)
- const biciPeso = bici.map((element)=> {
-   return element.peso;
- });
- let pesoMinore;
-for (let i = 0; i < biciPeso.length; i++){
-    
-    if (i < biciPeso){
-        console.log(element.peso);
+
+//ciclo finchè non trovo chi ha il peso minore
+let biciLeggera;
+for (let i = 0; i < bici.length; i++) {
+
+    if (i === 0) biciLeggera = bici[i];
+
+    if (bici[i].peso < biciLeggera.peso) {
+        biciLeggera = bici[i];
     }
 };
+
+const { nome, peso } = biciLeggera;
+console.log(biciLeggera);
+console.log(` questa è la bici più leggera. Si chiama ${biciLeggera.nome} e pesa ${biciLeggera.peso} kg`);
+
+// ## SNACK 4
+// Creare un array di oggetti di squadre di calcio.
+// > Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
+
+// - Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
+// > Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti.
+// - Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
