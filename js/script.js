@@ -235,6 +235,7 @@ console.log(bici)
 
 //ciclo finchè non trovo chi ha il peso minore
 let biciLeggera;
+
 for (let i = 0; i < bici.length; i++) {
 
     if (i === 0) biciLeggera = bici[i];
@@ -260,28 +261,58 @@ console.log(` questa è la bici più leggera. Si chiama ${biciLeggera.nome} e pe
 
 
 // Creare un array di oggetti di squadre di calcio.
+
+
+
 const squadre = [
     {
-        nome: 'Bologna',
+        name: 'Bologna',
         punti: 0,
         falli: 0
     },
     {
-        nome: 'Chievo',
+        name: 'Chievo',
         punti: 0,
         falli: 0
     },
     {
-        nome: 'Inter',
+        name: 'Inter',
         punti: 0,
         falli: 0
     },
     {
-        nome: 'Milan',
+        name: 'Milan',
         punti: 0,
         falli: 0
     }
-]
+];
+
+const classifica = squadre.map((element)=> {
+
+    const {name,punti,falli} = element;
+
+    const obj = {
+        name,
+        punti,
+        falli
+    }
+
+    obj.punti= getRndInteger(40,75);
+    
+    obj.falli = getRndInteger(20,100);
+   
+    console.log(`La squadra ${obj.name} ha totalizzato ${obj.punti} punti e ha fatto ${obj.falli} falli`);
+});
+
+
+
+// Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti
+
+
+
+
+
+
 
 
 
