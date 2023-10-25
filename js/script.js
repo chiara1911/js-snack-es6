@@ -246,23 +246,17 @@ for (let i = 0; i < bici.length; i++) {
 };
 
 const { nome, peso } = biciLeggera;
-console.log(biciLeggera);
-console.log(` questa è la bici più leggera. Si chiama ${biciLeggera.nome} e pesa ${biciLeggera.peso} kg`);
+const biciEl = document.getElementById('bici-da-corsa');
+let text;
+
+text = ` questa è la bici più leggera. Si chiama ${biciLeggera.nome} e pesa ${biciLeggera.peso} kg`;
+
+biciEl.innerHTML = text;
 
 // ## SNACK 4
-
-
 // - Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
 // > Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti.
-// - Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
-
 // Creare un array di oggetti di squadre di calcio.
-// > Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
-
-
-// Creare un array di oggetti di squadre di calcio.
-
-
 
 const squadre = [
     {
@@ -287,26 +281,44 @@ const squadre = [
     }
 ];
 
-const classifica = squadre.map((element)=> {
-
-    const {name,punti,falli} = element;
-
+const classifica = squadre.map((element) => {
+    const { name, punti, falli } = element;
     const obj = {
         name,
         punti,
         falli
-    }
-
-    obj.punti= getRndInteger(40,75);
-    
-    obj.falli = getRndInteger(20,100);
+    };
+    // Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti
+    obj.punti = getRndInteger(40, 75);
+    obj.falli = getRndInteger(20, 100);
+    // Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.  
+    const teamEl = {
+        name,
+        falli
+    };
+    teamEl.falli = obj.falli;
    
-    console.log(`La squadra ${obj.name} ha totalizzato ${obj.punti} punti e ha fatto ${obj.falli} falli`);
+    const score = document.getElementById('punteggioTotale');
+    let testo;
+             testo = `La squadra ${name} ha fatto ${obj.falli} falli`;
+        score.innerHTML= testo;
+    
 });
 
+    
 
 
-// Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti
+  
+
+
+
+
+
+
+
+
+
+
 
 
 
