@@ -241,33 +241,36 @@ const rowEl = document.querySelector('.row');
 let biciLeggera;
 
 for (let i = 0; i < bici.length; i++) {
-
+    
     if (i === 0) biciLeggera = bici[i];
 
     if (bici[i].peso < biciLeggera.peso) {
         biciLeggera = bici[i];
     }
-    printCol(bici)
+    printColBike(biciLeggera)
+    
 };
 const biciEl = document.getElementById('bici-da-corsa');
 const { nome, peso, image } = biciLeggera;
-function printCol(bikes) {
+
+function printColBike(bikes) {
     const col = document.createElement("div");
     col.classList.add("col-6");
     const template = `        
         <div class=" col-6 card-bike text-center text-light p-3 d-flex flex-row align-content center ">
-        <div class="col-6">
-            <h4 class="text-uppercase text-light ">Nome Bici</h4>          
-            <h3>${biciLeggera.nome} </h3>
+            <div class="col-6">
+                <h4 class="text-uppercase text-light ">Nome Bici</h4>          
+                <h3>${biciLeggera.nome} </h3>
             </div>
             <div class="col-6 card-body d-flex flex-column text-center text-light"> 
-            <img class="bike-img" src="/img/${biciLeggera.image}" alt="">                                         
-            <h4 class="p-3 text-light">peso: ${biciLeggera.peso}</h4>  
+                <img class="bike-img" src="/img/${biciLeggera.image}" alt="">                                         
+                <h4 class="p-3 text-light">peso: ${biciLeggera.peso}</h4>  
                     
             </div>
         </div>
-
-
+        <div class="m-auto">
+        <h3 id="bici-da-corsa" class="text-light"></h3>
+    </div>
     `
     col.innerHTML = template;
     rowEl.append(col);
@@ -340,16 +343,16 @@ const classifica = squadre.map((element) => {
     // Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.  
     console.log(`la squadra ${name} ha totalizzato ${obj.falli} falli`);
     for (let i = 0; i < 1; i++) {
-        printCol(obj[i])
+        printColTeam(obj[i])
     };
-    function printCol(scudetto) {
+    function printColTeam(scudetto) {
         const col = document.createElement("div");
         col.classList.add("col-6");
         const template = `    
            <div id="football"> 
             <div class="card text-center col-3 text-light">
             <h3 class="text-uppercase text-light"> squadra</h3>
-                <img class="card-img" src="/img/${obj.picture}" alt ="">
+                <img class="card-img m-auto" src="/img/${obj.picture}" alt ="">
                 <h3>${obj.name} </h3>
                     <div class="col-9 card-body d-flex flex-column stext-center text-light">                                               <h4 class="p-3 text-light">Allenatore: ${obj.allenatore}</h4>  
                         <h5 class="p-3 text-light">falli subiti ${obj.falli} </h5>
