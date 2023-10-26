@@ -215,24 +215,28 @@ console.log(people);
 const bici = [
     {
         nome: 'Flash',
-        peso: 7
+        peso: 7,
+        image: 'bici-rossa.jpg'
     },
     {
         nome: 'Turbo',
-        peso: 6
+        peso: 6,
+        image: 'bici-turbo.jpg'
     },
     {
         nome: 'Giulietta',
-        peso: 8
+        peso: 8,
+        image: 'bici-giulietta.jpg'
     },
     {
         nome: 'Postino',
-        peso: 9
+        peso: 9,
+        image: 'bici-postino.jpg'
     }
 ];
 
 console.log(bici)
-
+const rowEl = document.querySelector('.row');
 //ciclo finchè non trovo chi ha il peso minore
 let biciLeggera;
 
@@ -243,15 +247,40 @@ for (let i = 0; i < bici.length; i++) {
     if (bici[i].peso < biciLeggera.peso) {
         biciLeggera = bici[i];
     }
+    printCol(bici)
 };
-
-const { nome, peso } = biciLeggera;
 const biciEl = document.getElementById('bici-da-corsa');
+const { nome, peso, image } = biciLeggera;
+function printCol(bikes) {
+    const col = document.createElement("div");
+    col.classList.add("col-6");
+    const template = `        
+        <div class=" col-6 card-bike text-center text-light p-3 d-flex flex-row align-content center ">
+        <div class="col-6">
+            <h4 class="text-uppercase text-light ">Nome Bici</h4>          
+            <h3>${biciLeggera.nome} </h3>
+            </div>
+            <div class="col-6 card-body d-flex flex-column text-center text-light"> 
+            <img class="bike-img" src="/img/${biciLeggera.image}" alt="">                                         
+            <h4 class="p-3 text-light">peso: ${biciLeggera.peso}</h4>  
+                    
+            </div>
+        </div>
+
+
+    `
+    col.innerHTML = template;
+    rowEl.append(col);
+}
+
+
 let text;
 
 text = ` Questa è la bici più leggera. Si chiama ${biciLeggera.nome} e pesa ${biciLeggera.peso} kg`;
 
 biciEl.innerHTML = text;
+
+
 
 // ## SNACK 4
 // - Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
@@ -263,14 +292,14 @@ const squadre = [
         name: 'Bologna',
         punti: 0,
         falli: 0,
-        picture : 'Logo_Bologna_FC_2018.svg.png',
-        allenatore : 'Thiago Motta',
+        picture: 'Logo_Bologna_FC_2018.svg.png',
+        allenatore: 'Thiago Motta',
     },
     {
         name: 'Chievo',
         punti: 0,
         falli: 0,
-        picture : 'chievo.png',
+        picture: 'chievo.png',
         allenatore: 'Michele Marcolini'
     },
     {
@@ -278,17 +307,17 @@ const squadre = [
         punti: 0,
         falli: 0,
         picture: 'inter.png',
-        allenatore:'Simone Inzaghi'
+        allenatore: 'Simone Inzaghi'
     },
     {
         name: 'Milan',
         punti: 0,
         falli: 0,
         picture: 'Logo_of_AC_Milan.svg.webp',
-        allenatore : 'Stefano Pioli'
+        allenatore: 'Stefano Pioli'
     }
 ];
-const rowEl = document.querySelector('.row');
+
 console.log(rowEl);
 
 
@@ -309,14 +338,15 @@ const classifica = squadre.map((element) => {
     obj.punti = getRndInteger(40, 75);
     obj.falli = getRndInteger(20, 60);
     // Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.  
-     console.log(`la squadra ${name} ha totalizzato ${obj.falli} falli`);
-     for (let i = 0; i < 1; i++) {
+    console.log(`la squadra ${name} ha totalizzato ${obj.falli} falli`);
+    for (let i = 0; i < 1; i++) {
         printCol(obj[i])
     };
-     function printCol(scudetto){
+    function printCol(scudetto) {
         const col = document.createElement("div");
-         col.classList.add("col-6");
-           const template = `         
+        col.classList.add("col-6");
+        const template = `    
+           <div id="football"> 
             <div class="card text-center col-3 text-light">
             <h3 class="text-uppercase text-light"> squadra</h3>
                 <img class="card-img" src="/img/${obj.picture}" alt ="">
@@ -325,12 +355,13 @@ const classifica = squadre.map((element) => {
                         <h5 class="p-3 text-light">falli subiti ${obj.falli} </h5>
                     </div>
             </div>
+            </div>
        
         `
         col.innerHTML = template;
         rowEl.append(col);
     }
-   
+
 });
 
 
