@@ -7,41 +7,37 @@
 // posto occupato. (place)
 // Generiamo e stampiamo in console la lista per i segnaposto.
 
+// ## SNACK 1
 // creo array con i nomi
-
-
-
 const tavoloVip = ['Brad Pitt', 'Johnny Depp', 'Lady Gaga', 'Cristiano Ronaldo', 'Georgina Rodriguez', 'Chiara Ferragni', 'Fedez', 'George Clooney', 'Amal Clooney', 'Maneskin'];
-
-
-
+// Crea un nuovo array con la lista degli ospiti
 const segnaposto = [];
-person = tavoloVip.map((element, index) => {
-
-
+// Crea un nuovo array con la lista dei tavoli
+guestName = tavoloVip.map((element, index) => {
     return { tableName: 'tavoloVip', guestName: element, place: index + 1 }
 });
+// console.log(guestName)
 
-console.log(segnaposto);
 let place = 1
 tavoloVip.forEach((element, index, array) => {
     array[index] = {
         tableName: 'tavoloVip',
         guestName: element,
-        place: place
+        place: index + 1,
     }
-    //  if (guest ==='Maneskin'){
-    //     for(let i= 0; i < 3; i++){
-    //         place++;
-    //         array.push({
-    //             tableName: 'tavoloVip',
-    //              guestName: element,
-    //               place: place
-    //          })
-    //     }
-    //  }
-
+console.log(array[index])
 })
+//      if (guestName ==='Maneskin'){
+//         for(let i= 0; i < 3; i++){
+//             place++;
+//             array.push({
+//                 tableName: 'tavoloVip',
+//                  guestName: element,
+//                   place: place
+//              })
+//         }
+//      }
+// })
 
 
 
